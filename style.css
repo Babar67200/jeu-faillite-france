@@ -26,7 +26,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 #game-app {
@@ -215,6 +214,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   z-index: 20;
+  overflow-y: auto;
 }
 
 .event-card {
@@ -407,3 +407,42 @@ body {
 #end-message { font-size: 14px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.4; }
 .btn-restart { margin-top: 15px; padding: 12px 24px; background: var(--accent-green); color: #fff; border: none; border-radius: 6px; font-weight: 800; cursor: pointer; }
 .hidden { display: none !important; }
+
+/* MEDIA QUERIES POUR SMARTPHONES */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+    height: auto;
+    display: block;
+  }
+  #game-app {
+    width: 100vw;
+    height: auto;
+    max-height: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  #hud {
+    height: auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 8px;
+  }
+  #game-body {
+    flex-direction: column;
+    height: auto;
+  }
+  #map-container {
+    height: 300px;
+    flex: none;
+    width: 100%;
+  }
+  #event-sidebar {
+    flex: none;
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--border-color);
+    padding: 12px;
+  }
+}
